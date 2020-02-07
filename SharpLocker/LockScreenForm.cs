@@ -11,11 +11,11 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Runtime.InteropServices;
 
-namespace WindowsFormsApp9
+namespace SharpLocker
 {
-    public partial class Form1 : Form
+    public partial class LockScreenForm : Form
     {
-        public Form1()
+        public LockScreenForm()
         {
             InitializeComponent();
             Taskbar.Hide();
@@ -29,20 +29,20 @@ namespace WindowsFormsApp9
             BackgroundImageLayout = ImageLayout.Stretch;
             this.TopMost = true;
             string userName = System.Environment.UserName.ToString();
-            label2.Text = userName;
-            label2.BackColor = System.Drawing.Color.Transparent;
+            UserNameLabel.Text = userName;
+            UserNameLabel.BackColor = System.Drawing.Color.Transparent;
             int usernameloch = (Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height) / 100) * 64;
             int usericonh = (Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height) / 100) * 29;
             int buttonh = (Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height) / 100) * 64;
             int usernameh = (Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height) / 100) * 50;
             int locked = (Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height) / 100) * 57;
             int bottomname = (Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height) / 100) * 95;
-            textBox2.Top = usernameloch;
-            pictureBox1.Top = usericonh;
-            button1.Top = buttonh;
-            label2.Top = usernameh;
-            label1.Top = locked;
-            textBox2.UseSystemPasswordChar = true;
+            PasswordTextBox.Top = usernameloch;
+            ProfileIcon.Top = usericonh;
+            SubmitPasswordButton.Top = buttonh;
+            UserNameLabel.Top = usernameh;
+            LockedLabel.Top = locked;
+            PasswordTextBox.UseSystemPasswordChar = true;
 
 
             foreach (var screen in Screen.AllScreens)
@@ -153,7 +153,7 @@ namespace WindowsFormsApp9
         }
 
 
-        private void label2_Click(object sender, EventArgs e)
+        private void UserNameLabel_Click(object sender, EventArgs e)
         {
 
         }
@@ -181,9 +181,9 @@ namespace WindowsFormsApp9
             base.OnClosing(e);
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(textBox2);
+            Console.WriteLine(PasswordTextBox);
         }
 
         private void label1_Click(object sender, EventArgs e)
